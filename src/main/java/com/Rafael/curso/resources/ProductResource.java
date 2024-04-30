@@ -16,18 +16,18 @@ import com.Rafael.curso.services.ProductService;
 @RequestMapping(value = "/products")
 public class ProductResource {
 
-	@Autowired
-	private ProductResource service;
-	
-	@GetMapping 
+	@Autowired 
+	private ProductService service;
+
+	@GetMapping
 	public ResponseEntity<List<Product>> findAll() {
 		List<Product> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
-	
+
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Product> findById(@PathVariable Long id) {
-		Product obj = service.findById(id)
-		return ResponseEntity.ok().body(obj); 
+		Product obj = service.findById(id);
+		return ResponseEntity.ok().body(obj);
 	}
 }
